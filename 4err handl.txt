@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+namespace error
+{
+   class err
+{
+public static void Main()
+{
+try
+{
+int zero = 0;
+Console.WriteLine("In try block: attempting division by zero"); int myInt = 1 / zero;
+Console.WriteLine("You never see this message!");
+}
+catch (ArithmeticException e)
+{
+Console.WriteLine("In catch block: an exception was thrown"); Console.WriteLine("\n" + e);
+}
+try
+{
+string x = "abcde"; 
+char a1 = x[1]; 
+char a2 = x[100];
+Console.WriteLine(a1); Console.WriteLine(a2);
+}
+catch (IndexOutOfRangeException e)
+{
+Console.WriteLine("\n" + e);
+ 
+}
+finally
+{
+Console.WriteLine("In finally block: do any cleaning up here");
+}
+Console.ReadLine();
+}
+}
+}
+
+
+

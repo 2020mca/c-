@@ -1,0 +1,450 @@
+SITE.MASTER
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<title>
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+</asp:ContentPlaceHolder>
+</title>
+<link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+<asp:ContentPlaceHolder ID="HeadContent" runat="server">
+</asp:ContentPlaceHolder>
+</head>
+ 
+<body>
+<form runat="server">
+<div class="page">
+<div class="header">
+<div class="logo">
+<img src="925717953s.jpg" height="50" width="50"/>
+</div>
+<div class="title">
+<h1>
+Dayananda Sagar College Of Engineering
+</h1>
+</div>
+<div class="address">
+Dayananda Sagar College Of Engineering<br />ks layout bangalore
+</div>
+<div class="loginDisplay">
+</div>
+<div class="clear hideSkiplink">
+<asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+<Items>
+<asp:MenuItem NavigateUrl="demo.aspx" Text="Home"/>
+<asp:MenuItem NavigateUrl="department.aspx" Text="Department"/>
+<asp:MenuItem NavigateUrl="facility.aspx" Text="Facility Available"/>
+<asp:MenuItem NavigateUrl="~/feedback.aspx" Text="Feedback"/>
+</Items>
+</asp:Menu>
+</div>
+</div>
+<div class="main">
+<asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+</div>
+<div class="clear">
+</div>
+</div>
+<div class="footer">
+
+</div>
+</form>
+</body>
+</html>
+ 
+
+STYLE->SITE.CSS
+/* DEFAULTS
+ 	*/
+
+/* DEFAULTS
+ 	*/
+.logo
+{
+height:80px; width:80px; float:left;
+
+}
+.address
+{
+float:right;
+padding-top:100px; color:White;
+}
+body
+{
+background: #b6b7bc; font-size: .80em;
+font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+margin: 0px; padding: 0px; color: #696969;
+}
+
+a:link, a:visited
+{
+color: #034af3;
+}
+
+a:hover
+{
+color: #1d60ff;
+text-decoration: none;
+}
+
+a:active
+{
+color: #034af3;
+}
+ 
+
+p
+{
+margin-bottom: 10px; line-height: 1.6em;
+}
+
+
+/* HEADINGS
+ 	*/
+
+h1, h2, h3, h4, h5, h6
+{
+font-size: 1.5em; color: #666666;
+font-variant: small-caps; text-transform: none; font-weight: 200; margin-bottom: 0px;
+}
+
+h1
+{
+font-size: 1.6em; padding-bottom: 0px; margin-bottom: 0px;
+}
+
+h2
+{
+font-size: 1.5em; font-weight: 600;
+}
+
+h3
+{
+font-size: 1.2em;
+}
+
+h4
+{
+font-size: 1.1em;
+}
+
+h5, h6
+{
+ 
+font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS
+ 	*/
+
+.page
+{
+width: 960px; background-color: #fff;
+margin: 20px auto 0px auto; border: 1px solid #496077;
+}
+
+.header
+{
+position: relative; margin: 0px; padding: 0px;
+background: #4b6c9e; width: 100%;
+}
+
+.header h1
+{
+font-weight: 700; margin: 0px;
+padding: 0px 0px 0px 20px; color: #f9f9f9;
+border: none; line-height: 2em; font-size: 2em;
+}
+
+.main
+{
+padding: 0px 12px; margin: 12px 8px 8px 8px;
+ 
+min-height: 420px;
+}
+
+.leftCol
+{
+padding: 6px 0px;
+margin: 12px 8px 8px 8px; width: 200px;
+min-height: 200px;
+}
+
+.footer
+{
+color: #4e5766;
+padding: 8px 0px 0px 0px; margin: 0px auto;
+text-align: center; line-height: normal;
+}
+
+
+/* TAB MENU
+ 	*/
+
+div.hideSkiplink
+{
+background-color:#3a4f63; width:100%;
+}
+
+div.menu
+{
+padding: 4px 0px 4px 8px;
+}
+
+div.menu ul
+{
+list-style: none; margin: 0px; padding: 0px; width: auto;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+background-color: #465c71;
+ 
+border: 1px #4e667d solid; color: #dde4ec;
+display: block;
+line-height: 1.35em; padding: 4px 20px; text-decoration: none; white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+background-color: #bfcbd6; color: #465c71;
+text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+background-color: #465c71; color: #cfdbe6;
+text-decoration: none;
+}
+
+/* FORM ELEMENTS
+ 	*/
+
+fieldset
+{
+margin: 1em 0px; padding: 1em;
+border: 1px solid #ccc;
+}
+
+fieldset p
+{
+margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+display: block;
+}
+
+fieldset label.inline
+{
+display: inline;
+ 
+}
+
+legend
+{
+font-size: 1.1em; font-weight: 600;
+padding: 2px 4px 8px 4px;
+}
+
+input.textEntry
+{
+width: 320px;
+border: 1px solid #ccc;
+}
+
+input.passwordEntry
+{
+width: 320px;
+border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+width: 42%;
+}
+
+/* MISC
+ 	*/
+
+.clear
+{
+clear: both;
+}
+
+.title
+{
+display: block; float: left;
+text-align: left; width: auto;
+}
+
+.loginDisplay
+{
+font-size: 1.1em; display: block;
+ 
+text-align: right; padding: 10px; color: White;
+}
+
+.loginDisplay a:link
+{
+color: white;
+}
+
+.loginDisplay a:visited
+{
+color: white;
+}
+
+.loginDisplay a:hover
+{
+color: white;
+}
+
+.failureNotification
+{
+font-size: 1.2em; color: Red;
+}
+
+.bold
+{
+font-weight: bold;
+}
+
+.submitButton
+{
+text-align: right; padding-right: 10px;
+}
+ 
+
+ 
+
+
+
+Demo.aspx
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="demo.aspx.cs" Inherits="WebApplication1.demo"
+%>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+HOME
+ 
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<ul>
+<li><a href="department.aspx">VISIT TO DEPARTEMNT PAGE</a></li>
+<li><a href="facility.aspx">VISIT TO FACILITY PAGE</a></li>
+<li><a href="feedback.aspx">VISIT TO FEEDBACK PAGE</a></li>
+</ul>
+</asp:Content>
+
+ 
+Department.aspx
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="department.aspx.cs" Inherits="WebApplication1.department" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+Department
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<ul>
+<li>MCA</li>
+<li>MBA</li>
+<li>B.TECH</li>
+</ul>
+</asp:Content>
+Same add new item Facility.aspx
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="facility.aspx.cs" Inherits="WebApplication1.facility" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+Facility Available
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<ul>
+<li>WIFI CAMPUS</li>
+<li>PLAYGROUND</li>
+<li>CENTRAL LIBRARY</li></ul>
+</asp:Content>
+
+
+Add new item Feedback.aspx
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="feedback.aspx.cs" Inherits="WebApplication1.feedback" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+ 
+Feedback
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<center>
+<asp:Label ID="Label1" runat="server" Text="Name"></asp:Label>
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
+<asp:Label ID="Label2" runat="server" Text="Email id"></asp:Label>
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><br />
+<asp:Label ID="Label3" runat="server" Text="Message"></asp:Label>
+<asp:TextBox ID="TextBox3" runat="server" TextMode="MultiLine"></asp:TextBox><br />
+<asp:Button ID="Button1" runat="server" Text="Submit" onclick="Button1_Click" />
+</center>
+</asp:Content>
+
+In this page goto design part
+ 
+
+ 
+
+
+
+
+
+
+Create new database connection in that add new table and name it as feedback
+ 
+
+ 
+On submit button
+using System;
+using System.Collections.Generic; using System.Linq;
+using System.Web; using System.Web.UI;
+using System.Web.UI.WebControls; using System.Data.SqlClient;
+
+namespace WebApplication1
+{
+public partial class feedback : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+
+}
+
+protected void Button1_Click(object sender, EventArgs e)
+{
+try
+{
+
+SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Admin\Documents\prgm4.mdf;Integr ated Security=True;Connect Timeout=30;User Instance=True");
+con.Open();
+ 
+SqlCommand cmd = new SqlCommand("insert into feedback(name,email,message)values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "')", con);
+cmd.ExecuteNonQuery();
+
+Response.Write("<script>alert('submited');</script>"); con.Close();
+}
+catch (Exception ec)
+{
+Response.Write(ec.Message);
+}
+}
+}
+}

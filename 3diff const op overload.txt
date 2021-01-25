@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Labprogram3
+{
+   class constructOverload
+{
+string user; int age;
+public constructOverload()
+{
+user = "Steve jobs"; age = 28;
+Console.WriteLine("Previous User {0} and he was {1} year old", user, age);
+}
+public constructOverload(string name, int age1)
+{
+user = name; age = age1;
+Console.WriteLine("Current User {0} and he is {1} year old", user, age);
+}
+}
+class Complex
+{
+public int a; public int b;
+public Complex(int a, int b)
+{
+this.a = a; this.b = b;
+}
+public static Complex operator +(Complex c1, Complex c2)
+{
+return new Complex(c1.a + c2.a, c1.b + c2.b);
+}
+public override string ToString()
+{
+ 
+return (String.Format("a == {0} b === {1}", a, b));
+}
+
+static void Main(string[] args)
+{
+constructOverload a = new constructOverload(); 
+constructOverload a2 = new constructOverload("Bill Gates", 41); 
+Complex num1 = new Complex(9, 3);
+Complex num2 = new Complex(3, 4); 
+Complex sum = num1 + num2; 
+Console.WriteLine("result {0}", sum); 
+Console.Read();
+}
+}
+}
+
+

@@ -1,0 +1,173 @@
+
+private void courseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+{
+Form2 ob = new Form2();	ob.Show();
+}
+
+
+private void bookDetailsToolStripMenuItem_Click(object sender, EventArgs e)	{ Form3 ob = new Form3();	ob.Show();
+}
+ 
+private void studentDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+{
+Form4 ob = new Form4();	ob.Show();
+}	private void issueBookToolStripMenuItem_Click(object sender, EventArgs e)
+{
+Form5 ob = new Form5();	ob.Show();
+}
+
+private void byCourseToolStripMenuItem_Click(object sender, EventArgs e)	{ Form6 ob = new Form6();	ob.Show();
+}
+private void dateToolStripMenuItem_Click(object sender, EventArgs e)	{ Form7 ob = new Form7();	ob.Show();
+}
+private void nameToolStripMenuItem_Click(object sender, EventArgs e)	{ Form8 ob = new Form8();
+ob.Show();
+}
+private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+{
+this.Close();
+
+}
+
+ 
+
+ 
+
+
+ 
+namespace prog3
+{
+public partial class Form1 : Form
+{
+SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vinod Kumar\Documents\student.mdf;Integrated Security=True;Connect Timeout=30");
+SqlCommand cmd; public Form1()
+{
+InitializeComponent();
+}
+
+
+
+private void coursesubmit_Click(object sender, EventArgs e)
+{
+cmd = new SqlCommand("insert into tblcourse(courseid,coursename) values('" + textBox1.Text + "','" + textBox2.Text + "')", con);
+con.Open(); cmd.ExecuteNonQuery(); con.Close();
+MessageBox.Show("Course Inserted Successfully");
+}
+
+private void booksubmit_Click(object sender, EventArgs e)
+{
+cmd = new SqlCommand("insert into tblbook(bookid,bookname,author,courseid) values('" + textBox1.Text + "','" + textBox2.Text + "')", con);
+con.Open(); cmd.ExecuteNonQuery(); con.Close();
+MessageBox.Show("Book Inserted Successfully");
+}
+
+private void studentsubmit_Click(object sender, EventArgs e)
+{
+cmd = new SqlCommand("insert into tblstudent(usn,studname,courseid) values('" + textBox1.Text + "','" + textBox2.Text + "')", con);
+con.Open(); cmd.ExecuteNonQuery(); con.Close();
+MessageBox.Show("Student Inserted Successfully");
+}
+
+private void issuesubmit_Click(object sender, EventArgs e)
+ 
+{
+cmd = new SqlCommand("insert into tblbkissue(usn,bookid,issue) values('" +
+textBox1.Text + "','" + textBox2.Text + "')", con); con.Open();
+cmd.ExecuteNonQuery(); con.Close();
+MessageBox.Show("Book issued Successfully");
+}
+
+
+}
+}
+
+
+Search by Course Name
+Connect    book and course
+ 
+
+ 
+
+
+try
+ 
+private void SearchCourse_Click(object sender, EventArgs e)
+{
+ 
+{
+SqlConnection con1 = new SqlConnection(@" ");	con1.Open(); SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM course c,book b
+WHERE c.courseid = b.courseid and c.coursename ='" + textBox1.Text + "'", con1); DataTable dt = new DataTable();
+sda.Fill(dt); dataGridView1.DataSource = dt; con1.Close();
+}
+catch (Exception)
+{
+MessageBox.Show("Error ");
+}
+}
+ 
+Search by Date
+Connect book and issue
+ 
+
+
+ 
+
+
+try
+ 
+
+private void SearchDate_Click(object sender, EventArgs e)
+{
+ 
+{
+SqlConnection con1 = new SqlConnection(@" ");	con1.Open(); SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM bissue b,book b1
+WHERE b.bookid=b1.bookid and b.issuedate ='" + textBox1.Text + "'", con1); DataTable dt = new DataTable();
+sda.Fill(dt); dataGridView1.DataSource = dt; con1.Close();
+}
+catch (Exception)
+{
+MessageBox.Show("Error ");
+}
+
+}
+ 
+Search by USN
+Connect book and issue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+try
+ 
+private void SearchUSN_Click(object sender, EventArgs e)
+{
+ 
+{
+
+SqlConnection con1 = new SqlConnection(@" "); con1.Open();
+SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM bissue b,book
+b1,stud s
+WHERE b.usn=s.usn and b.bookid=b1.bookid and s.usn ='" + textBox1.Text + "'", con1); DataTable dt = new DataTable();
+sda.Fill(dt); dataGridView1.DataSource = dt; con1.Close();
+}
+catch (Exception)
+{
+MessageBox.Show("Error ");
+}
+
+}
